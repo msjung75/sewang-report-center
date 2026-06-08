@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>세왕상사 시장동향 리포트 센터</title>
+<meta name="description" content="세왕상사 주간 주류 시장동향 리포트 · 최신호 및 지난호 다운로드">
+
+<!-- ====================================================================== -->
+<!-- [트래킹] Google Analytics 4 — 익명 다운로드 집계용                       -->
+<!-- 설정: 아래 G-XXXXXXXXXX 를 본인 GA4 측정 ID로 교체하세요 (가이드 참고)   -->
+<!-- ====================================================================== -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX', { anonymize_ip: true });
+</script>
+
+<style>
+  :root{
+    --navy-900:#0a1426; --navy-800:#112440; --navy-700:#1b3460; --navy-600:#1c3868;
+    --ink:#0f1d3a; --gold:#c8a96a; --gold-soft:#e7cf9c; --red:#8b1a1a;
+    --text:#1e2026; --muted:#6a6f78; --line:#ececec; --bg:#f6f7f9; --card:#ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',sans-serif;
+    color:var(--text);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 22px;}
+
+  /* ---------- Top bar ---------- */
+  .topbar{background:var(--navy-900);color:#fff;}
+  .topbar-inner{display:flex;align-items:center;justify-content:space-between;height:64px;}
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand .mark{width:40px;height:40px;border-radius:8px;background:linear-gradient(135deg,var(--gold),#a9883f);
+    display:flex;align-items:center;justify-content:center;font-weight:900;color:var(--navy-900);font-size:18px;letter-spacing:-1px;}
+  .brand .name{font-weight:900;letter-spacing:3px;font-size:16px;}
+  .brand .sub{font-size:11px;color:rgba(255,255,255,.55);letter-spacing:2px;}
+  .langsel{display:flex;gap:4px;background:rgba(255,255,255,.08);border-radius:999px;padding:4px;}
+  .langsel button{border:0;background:transparent;color:rgba(255,255,255,.7);font-size:12.5px;font-weight:700;
+    padding:6px 12px;border-radius:999px;cursor:pointer;transition:.15s;}
+  .langsel button:hover{color:#fff;}
+  .langsel button.active{background:var(--gold);color:var(--navy-900);}
+
+  /* ---------- Hero (latest) ---------- */
+  .hero{background:linear-gradient(180deg,var(--navy-800) 0%,var(--navy-600) 100%);color:#fff;padding:48px 0 54px;}
+  .hero .eyebrow{display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:3px;color:var(--gold-soft);font-weight:700;text-transform:uppercase;}
+  .hero .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(200,169,106,.25);}
+  .hero h1{font-size:34px;font-weight:900;letter-spacing:-.02em;line-height:1.25;margin:14px 0 10px;}
+  .hero .meta{font-size:14px;color:rgba(255,255,255,.7);}
+  .hero .desc{font-size:15px;color:rgba(255,255,255,.82);margin-top:14px;max-width:620px;}
+  .dlrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;}
+  .dlbtn{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--navy-900);
+    font-weight:800;font-size:14px;padding:12px 20px;border-radius:10px;border:0;cursor:pointer;transition:.15s;}
+  .dlbtn:hover{transform:translateY(-1px);background:var(--gold-soft);}
+  .dlbtn svg{width:16px;height:16px;}
+  .dlbtn.disabled{background:rgba(255,255,255,.12);color:rgba(255,255,255,.45);cursor:not-allowed;pointer-events:none;}
+  .dlbtn small{font-weight:600;opacity:.7;font-size:11px;}
+
+  /* ---------- Sections ---------- */
+  section{padding:42px 0;}
+  .sec-head{display:flex;align-items:baseline;gap:14px;border-bottom:2px solid var(--navy-700);padding-bottom:10px;margin-bottom:22px;}
+  .sec-head h2{font-size:22px;font-weight:900;color:var(--ink);letter-spacing:-.01em;}
+  .sec-head .count{font-size:13px;color:var(--muted);font-weight:700;}
+
+  /* archive list */
+  .arc{display:grid;gap:12px;}
+  .arc-item{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;
+    display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;transition:.15s;}
+  .arc-item:hover{box-shadow:0 6px 22px rgba(15,29,58,.07);border-color:#dfe3ea;}
+  .arc-left{min-width:240px;}
+  .arc-issue{font-size:11px;font-weight:800;letter-spacing:2px;color:var(--gold);text-transform:uppercase;}
+  .arc-title{font-size:16px;font-weight:800;color:var(--ink);margin:3px 0 2px;}
+  .arc-date{font-size:12.5px;color:var(--muted);}
+  .arc-langs{display:flex;gap:7px;flex-wrap:wrap;}
+  .langpill{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:700;
+    padding:7px 13px;border-radius:8px;background:#eef1f6;color:var(--navy-700);cursor:pointer;border:1px solid #e2e7ef;transition:.15s;}
+  .langpill:hover{background:var(--navy-700);color:#fff;border-color:var(--navy-700);}
+  .langpill.off{background:#f4f5f7;color:#bcc1ca;cursor:not-allowed;border-style:dashed;pointer-events:none;}
+
+  /* ---------- Subscribe / contact ---------- */
+  .info{background:var(--navy-900);color:rgba(255,255,255,.8);padding:40px 0;}
+  .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;}
+  .info h3{color:#fff;font-size:15px;font-weight:800;letter-spacing:1px;margin-bottom:10px;}
+  .info p{font-size:13.5px;line-height:1.9;}
+  .info b{color:var(--gold);}
+  .foot{background:var(--navy-900);border-top:1px solid rgba(255,255,255,.1);padding:18px 0;
+    font-size:12px;color:rgba(255,255,255,.45);text-align:center;letter-spacing:.5px;}
+
+  @media(max-width:640px){
+    .hero h1{font-size:26px;}
+    .info-grid{grid-template-columns:1fr;}
+    .brand .sub{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== TOP BAR ===================== -->
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="brand">
+      <div class="mark">世</div>
+      <div>
+        <div class="name">SEWANG</div>
+        <div class="sub" data-i18n="brandSub">세왕상사 시장동향 리포트</div>
+      </div>
+    </div>
+    <div class="langsel" id="langsel">
+      <button data-ui="ko" class="active">한국어</button>
+      <button data-ui="en">EN</button>
+      <button data-ui="zh">中文</button>
+      <button data-ui="ja">日本語</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== HERO (LATEST) ===================== -->
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow"><span class="dot"></span><span data-i18n="latestLabel">최신호</span></div>
+    <h1 id="heroTitle"></h1>
+    <div class="meta" id="heroMeta"></div>
+    <div class="desc" id="heroDesc"></div>
+    <div class="dlrow" id="heroDownloads"></div>
+  </div>
+</div>
+
+<!-- ===================== ARCHIVE ===================== -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-i18n="archiveTitle">지난 리포트</h2>
+      <span class="count" id="archiveCount"></span>
+    </div>
+    <div class="arc" id="archive"></div>
+  </div>
+</section>
+
+<!-- ===================== INFO / CONTACT ===================== -->
+<div class="info">
+  <div class="wrap info-grid">
+    <div>
+      <h3 data-i18n="aboutTitle">리포트 안내</h3>
+      <p data-i18n="aboutBody">세왕상사가 매주 발행하는 주류 시장동향 리포트입니다. 신제품 동향, 트렌드 키워드, 채널별 인사이트를 담아 거래처에 제공합니다. 한국어·영어·중국어·일본어로 제공됩니다.</p>
+    </div>
+    <div>
+      <h3 data-i18n="contactTitle">문의</h3>
+      <p>
+        <b>세왕상사</b><br>
+        <span data-i18n="addr">서울 강동구 진황도로61길 60</span><br>
+        <span data-i18n="contactNote">신규 거래·리포트 구독 문의는 담당 영업사원에게 연락 주세요.</span>
+      </p>
+    </div>
+  </div>
+</div>
+<div class="foot">© 2026 SEWANG SANGSA · <span data-i18n="footNote">주류 도매 유통</span></div>
+
+<script>
+/* ============================================================
+   리포트 데이터
+   - week      : 내부 식별자(ISO 주차 등)
+   - issue     : 화면에 표시되는 발행호 라벨
+   - date      : 발행일 (YYYY-MM-DD)
+   - title     : 4개 언어 제목
+   - desc      : 최신호 요약 (4개 언어) — 최신호에만 사용
+   - files     : 언어별 PDF 경로. 값이 null 이면 "준비중"으로 표시
+   매주 새 리포트를 추가할 땐 이 배열 맨 위에 객체 하나만 추가하면 됩니다.
+   ============================================================ */
+const REPORTS = [
+  {
+    week: "2026-W24",
+    issue: { ko:"2026년 6월 2주차", en:"Week 2, June 2026", zh:"2026年6月第2周", ja:"2026年6月第2週" },
+    date: "2026-06-08",
+    title: {
+      ko:"세왕상사 시장동향 리포트", en:"Sewang Market Trends Report",
+      zh:"世旺商社 市场动向报告", ja:"世旺商社 マーケットトレンドレポート"
+    },
+    desc: {
+      ko:"이번 주 주류 시장의 신제품·트렌드 키워드와 채널별 판매 인사이트를 정리했습니다.",
+      en:"This week's new product launches, trend keywords, and channel-by-channel sales insights.",
+      zh:"本周酒类市场的新品、趋势关键词及各渠道销售洞察汇总。",
+      ja:"今週の酒類市場の新商品・トレンドキーワードとチャネル別販売インサイトをまとめました。"
+    },
+    files: {
+      ko:"reports/2026-W24/시장동향리포트_2026-06-2w.pdf",
+      en:"reports/2026-W24/Sewang_MarketReport_2026-06-2w_EN.pdf",
+      zh:"reports/2026-W24/Sewang_MarketReport_2026-06-2w_ZH.pdf",
+      ja:null
+    }
+  },
+  {
+    week: "2026-W23",
+    issue: { ko:"2026년 6월 1주차", en:"Week 1, June 2026", zh:"2026年6月第1周", ja:"2026年6月第1週" },
+    date: "2026-06-01",
+    title: {
+      ko:"세왕상사 시장동향 리포트 (무알콜 특집)", en:"Sewang Market Trends (Non-Alcoholic Special)",
+      zh:"世旺商社 市场动向报告（无酒精特辑）", ja:"世旺商社 マーケットトレンド（ノンアル特集）"
+    },
+    files: {
+      ko:"reports/2026-W23/시장동향리포트_2026-06-1w.pdf",
+      en:null,
+      zh:null,
+      ja:"reports/2026-W23/시장동향리포트_2026-06-1w_JP.pdf"
+    }
+  },
+  {
+    week: "2026-W22",
+    issue: { ko:"2026년 5월 5주차", en:"Week 5, May 2026", zh:"2026年5月第5周", ja:"2026年5月第5週" },
+    date: "2026-05-25",
+    title: {
+      ko:"세왕상사 시장동향 리포트", en:"Sewang Market Trends Report",
+      zh:"世旺商社 市场动向报告", ja:"世旺商社 マーケットトレンドレポート"
+    },
+    files: {
+      ko:"reports/2026-W22/세왕상사_시장동향리포트_2026-W22.pdf",
+      en:null, zh:null, ja:null
+    }
+  }
+];
+
+/* ============================================================
+   UI 다국어 (페이지 골격 텍스트)
+   ============================================================ */
+const I18N = {
+  ko:{ brandSub:"세왕상사 시장동향 리포트", latestLabel:"최신호", archiveTitle:"지난 리포트",
+       aboutTitle:"리포트 안내",
+       aboutBody:"세왕상사가 매주 발행하는 주류 시장동향 리포트입니다. 신제품 동향, 트렌드 키워드, 채널별 인사이트를 담아 거래처에 제공합니다. 한국어·영어·중국어·일본어로 제공됩니다.",
+       contactTitle:"문의", addr:"서울 강동구 진황도로61길 60",
+       contactNote:"신규 거래·리포트 구독 문의는 담당 영업사원에게 연락 주세요.",
+       footNote:"주류 도매 유통", download:"다운로드", soon:"준비중", reports:"개 리포트" },
+  en:{ brandSub:"Sewang Market Trends Report", latestLabel:"Latest", archiveTitle:"Past Reports",
+       aboutTitle:"About",
+       aboutBody:"A weekly beverage market trends report published by Sewang Sangsa. It covers new product trends, keywords, and channel insights for our partners. Available in Korean, English, Chinese and Japanese.",
+       contactTitle:"Contact", addr:"60, Jinhwangdo-ro 61-gil, Gangdong-gu, Seoul",
+       contactNote:"For new partnerships or report subscriptions, please contact your sales representative.",
+       footNote:"Beverage Wholesale Distribution", download:"Download", soon:"Coming soon", reports:"reports" },
+  zh:{ brandSub:"世旺商社 市场动向报告", latestLabel:"最新", archiveTitle:"往期报告",
+       aboutTitle:"关于报告",
+       aboutBody:"世旺商社每周发布的酒类市场动向报告，涵盖新品动向、趋势关键词及各渠道洞察，提供给合作伙伴。提供韩语、英语、中文、日语版本。",
+       contactTitle:"联系", addr:"首尔江东区辰煌岛路61街60号",
+       contactNote:"如需新合作或订阅报告，请联系您的销售负责人。",
+       footNote:"酒类批发流通", download:"下载", soon:"准备中", reports:"份报告" },
+  ja:{ brandSub:"世旺商社 マーケットトレンドレポート", latestLabel:"最新号", archiveTitle:"過去のレポート",
+       aboutTitle:"レポート案内",
+       aboutBody:"世旺商社が毎週発行する酒類マーケットトレンドレポートです。新商品動向・トレンドキーワード・チャネル別インサイトを取引先にお届けします。韓国語・英語・中国語・日本語で提供します。",
+       contactTitle:"お問い合わせ", addr:"ソウル特別市江東区辰煌島路61キル60",
+       contactNote:"新規取引・購読のお問い合わせは担当営業までご連絡ください。",
+       footNote:"酒類卸売流通", download:"ダウンロード", soon:"準備中", reports:"件のレポート" }
+};
+
+const LANG_NAMES = { ko:"한국어", en:"English", zh:"中文", ja:"日本語" };
+let currentUI = "ko";
+
+/* ---------- 다운로드 + 트래킹 ---------- */
+function trackAndDownload(week, lang, url){
+  // GA4 익명 이벤트 전송 (누가 받았는지는 수집 안 함, 횟수만 집계)
+  if (typeof gtag === "function"){
+    gtag('event', 'report_download', {
+      report_week: week,
+      language: lang
+    });
+  }
+  // 실제 파일 다운로드
+  window.open(url, '_blank');
+}
+
+/* ---------- 렌더링 ---------- */
+function iconDownload(){
+  return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>';
+}
+
+function renderHero(){
+  const t = I18N[currentUI];
+  const r = REPORTS[0];
+  document.documentElement.lang = currentUI;
+  document.getElementById('heroTitle').textContent = r.title[currentUI];
+  document.getElementById('heroMeta').textContent = r.issue[currentUI] + " · " + r.date;
+  document.getElementById('heroDesc').textContent = r.desc ? r.desc[currentUI] : "";
+  const box = document.getElementById('heroDownloads');
+  box.innerHTML = "";
+  ["ko","en","zh","ja"].forEach(lang=>{
+    const url = r.files[lang];
+    const btn = document.createElement(url ? 'button' : 'div');
+    btn.className = 'dlbtn' + (url ? '' : ' disabled');
+    btn.innerHTML = (url ? iconDownload() : '') +
+      '<span>'+LANG_NAMES[lang]+' PDF</span>' +
+      (url ? '' : ' <small>'+t.soon+'</small>');
+    if (url) btn.onclick = ()=>trackAndDownload(r.week, lang, url);
+    box.appendChild(btn);
+  });
+}
+
+function renderArchive(){
+  const t = I18N[currentUI];
+  const past = REPORTS.slice(1);
+  document.getElementById('archiveCount').textContent = past.length + " " + t.reports;
+  const box = document.getElementById('archive');
+  box.innerHTML = "";
+  past.forEach(r=>{
+    const item = document.createElement('div');
+    item.className = 'arc-item';
+    const langPills = ["ko","en","zh","ja"].map(lang=>{
+      const url = r.files[lang];
+      if (url){
+        return '<span class="langpill" onclick="trackAndDownload(\''+r.week+'\',\''+lang+'\',\''+url+'\')">'+LANG_NAMES[lang]+'</span>';
+      }
+      return '<span class="langpill off">'+LANG_NAMES[lang]+'</span>';
+    }).join("");
+    item.innerHTML =
+      '<div class="arc-left">'+
+        '<div class="arc-issue">'+r.issue[currentUI]+'</div>'+
+        '<div class="arc-title">'+r.title[currentUI]+'</div>'+
+        '<div class="arc-date">'+r.date+'</div>'+
+      '</div>'+
+      '<div class="arc-langs">'+langPills+'</div>';
+    box.appendChild(item);
+  });
+}
+
+function applyI18n(){
+  const t = I18N[currentUI];
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    if (t[key]) el.textContent = t[key];
+  });
+}
+
+function setUI(lang){
+  currentUI = lang;
+  document.querySelectorAll('#langsel button').forEach(b=>{
+    b.classList.toggle('active', b.getAttribute('data-ui')===lang);
+  });
+  applyI18n(); renderHero(); renderArchive();
+}
+
+document.querySelectorAll('#langsel button').forEach(b=>{
+  b.addEventListener('click', ()=>setUI(b.getAttribute('data-ui')));
+});
+
+/* init */
+setUI('ko');
+</script>
+</body>
+</html>
